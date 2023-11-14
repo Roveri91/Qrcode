@@ -1,0 +1,8 @@
+<h1>Profile#index</h1>
+<% @profiles.each do |profile| %>
+  <%= link_to show_path(profile) %>
+    <div>
+      <h1><%= profile.name %> <%= profile.surname %></h1>
+    </div>
+  <% end %>
+<% end %>
