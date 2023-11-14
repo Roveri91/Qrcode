@@ -1,2 +1,6 @@
-<h1>Profile#show</h1>
-<p>Find me in app/views/profile/show.html.erb</p>
+<div class="card m-5 p-5">
+  <h1>Name: <%= @profile.name %></h1>
+  <h1>Surname: <%= @profile.surname %></h1>
+  <h1>Birthday: <%= @profile.birthday %></h1>
+  <%= link_to profile_index_path "back" %>
+</div>

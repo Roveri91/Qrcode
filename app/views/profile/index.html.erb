@@ -1,7 +1,8 @@
-<h1>Profile#index</h1>
+<h1>Profiles</h1>
+
 <% @profiles.each do |profile| %>
-  <%= link_to show_path(profile) %>
-    <div>
+  <%= link_to profile_path(profile) do %>
+    <div class="card m-5 p-5">
       <h1><%= profile.name %> <%= profile.surname %></h1>
     </div>
   <% end %>
