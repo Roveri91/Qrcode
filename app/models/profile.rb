@@ -11,7 +11,7 @@ class Profile < ApplicationRecord
 
     host = Rails.application.config.action_controller.default_url_options[:host]
 
-    qrcode = RQRCode::QRCode.new(post_url(self, host:))
+    qrcode = RQRCode::QRCode.new(profile_url(self, host:))
 
     png = qrcode.as_png(
       bit_depth: 1,
