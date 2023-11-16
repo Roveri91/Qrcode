@@ -2,6 +2,7 @@
   <h1>Name: <%= @profile.name %></h1>
   <h1>Surname: <%= @profile.surname %></h1>
   <h1>Birthday: <%= @profile.birthday %></h1>
-  <%= image_tag(url_for(@profile.qrcode)) %>
-  <%= link_to "back", profile_index_path  %>
+  <%#= image_tag(url_for(@profile.qrcode)) %>
+  <%= image_tag(@qrcode.to_data_url) %>
+  <p><%= link_to "back", profile_index_path  %></p>
 </div>

@@ -6,6 +6,7 @@ class ProfileController < ApplicationController
   end
 
   def show
+    @qrcode = RQRCode::QRCode.new(@profile.linkedln).as_png
   end
 
   def create
