@@ -3,7 +3,7 @@
   <h1>Surname: <%= @profile.surname %></h1>
   <h1>Birthday: <%= @profile.birthday %></h1>
   <%#= image_tag(url_for(@profile.qrcode)) %>
-  <div class="card m-5 p-5">
+  <div class="card m-5 p-5 qr-container">
     <%= image_tag(@qrcode.to_data_url) %>
   </div>
   <p><%= link_to "back", profiles_path  %></p>
