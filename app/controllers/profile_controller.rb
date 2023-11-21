@@ -7,6 +7,10 @@ class ProfileController < ApplicationController
     @profile = Profile.find(params[:id])
   end
 
+  def new
+    @profile = Profile.new
+  end
+
   def create
   end
 
