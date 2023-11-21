@@ -4,5 +4,5 @@
   <h1>Birthday: <%= @profile.birthday %></h1>
   <%#= image_tag(url_for(@profile.qrcode)) %>
   <%= image_tag(@qrcode.to_data_url) %>
-  <p><%= link_to "back", profile_index_path  %></p>
+  <p><%= link_to "back", profiles_path  %></p>
 </div>
