@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: :show
+  before_action :set_profile, only: [:show, :destroy]
 
   def index
     @profiles = Profile.all
@@ -23,7 +23,10 @@ class ProfilesController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
+    @profile.destroy
+
+    redirect_to root_path, status: :see_other
   end
 
   private
