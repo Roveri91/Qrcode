@@ -14,6 +14,8 @@ class ProfilesController < ApplicationController
   end
 
   def create
+    @profile = Profile.new(profile_params)
+    @profile.save
   end
 
   def delete
@@ -25,8 +27,8 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
   end
 
-  def post_params
-    params.require(:post).permit(:name, :surname, :birthday, :linkedln, :qrcode )
+  def profile_params
+    params.require(:profile).permit(:name, :surname, :birthday, :linkedln, :qrcode )
   end
 
 
