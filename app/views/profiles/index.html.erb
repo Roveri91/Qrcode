@@ -1,7 +1,7 @@
 <h1 class="text-center">Profiles</h1>
 
 <div class="d-flex">
-  <div class="card m-3" style="overflow: auto; max-height: 650px;">
+  <div  id="profile" class="card m-3" style="overflow: auto; max-height: 650px;">
     <% @profiles.each do |profile| %>
       <%= link_to profile_path(profile) do %>
         <div class="card m-5 p-5">
