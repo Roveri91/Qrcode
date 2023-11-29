@@ -2,7 +2,7 @@
 
 <div class="d-flex">
   <div  id="profile" class="card m-3" style="overflow: auto; max-height: 650px;">
-    <% @profiles.each do |profile| %>
+    <% @profiles.reverse_each do |profile| %>
       <%= link_to profile_path(profile) do %>
         <div class="card m-5 p-5">
           <h1><%= profile.name %> <%= profile.surname %></h1>
