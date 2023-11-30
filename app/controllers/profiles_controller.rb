@@ -25,6 +25,8 @@ class ProfilesController < ApplicationController
     respond_to do |format|
       if @profile.save
         format.turbo_stream { render :create, locals: { profile: @profile } }
+      else
+        format.turbo_stream { render :new, status: :unprocessable_entity, locals: { profile: @profile } }
       end
     end
   end
