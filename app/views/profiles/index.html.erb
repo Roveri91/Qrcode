@@ -1,8 +1,8 @@
 <h1 class="text-center">Profiles</h1>
 
 <div class="d-flex">
-  <div class="card m-3" style="overflow: auto; max-height: 650px;">
-    <% @profiles.each do |profile| %>
+  <div  id="profile" class="card m-3" style="overflow: auto; max-height: 650px;">
+    <% @profiles.reverse_each do |profile| %>
       <%= link_to profile_path(profile) do %>
         <div class="card m-5 p-5">
           <h1><%= profile.name %> <%= profile.surname %></h1>
@@ -11,6 +11,7 @@
     <% end %>
   </div>
   <div class="card m-3 p-5" style="width: 650px;">
-    <%= link_to "+ADD PROFILE", new_profile_path %>
+    <%= link_to "+ ADD PROFILE", new_profile_path,data: { turbo_frame: "modal"} %>
+    <%= turbo_frame_tag "modal" %>
   </div>
 </div>

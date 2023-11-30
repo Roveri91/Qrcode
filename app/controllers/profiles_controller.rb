@@ -16,10 +16,18 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
     @profile.save
-    if @profile.save
-      redirect_to profile_path(@profile)
-    else
-      render :new
+    # if @profile.save
+    #   redirect_to profile_path(@profile)
+    # else
+    #   render :new
+    # end
+
+    respond_to do |format|
+      if @profile.save
+        format.turbo_stream { render :create, locals: { profile: @profile } }
+      else
+        format.turbo_stream { render :new, status: :unprocessable_entity, locals: { profile: @profile } }
+      end
     end
   end
 
