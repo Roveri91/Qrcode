@@ -6,9 +6,12 @@ class Profile < ApplicationRecord
   validates :name, presence: true
   validates :surname, presence: true
   validates :birthday, presence: true
-  validates :linkedln, uniqueness: true
-  validates :linkedln, presence: { message: "is already taken. Please use a different LinkedIn URL." }
-  validates :linkedln, presence: true, format: { with: /\Ahttps:\/\/www.linkedin.com\/in\/[a-zA-Z0-9_-]+\z/, message: "must be a valid LinkedIn URL" }
+  validates :linkedln, presence: true
+  validates :linkedln, uniqueness: { message: "This URL has already taken." }
+
+  validates :linkedln, presence: true, format: { with: %r{\Ahttps://www\.linkedin\.com/in/[a-zA-Z0-9-]+(?:/)?\z}, message: 'is not a valid LinkedIn profile link' }
+
+  # validates :linkedln, presence: true, format: { with: /\Ahttps:\/\/www.linkedin.com\/in\/[a-zA-Z0-9_-]+\z/, message: "ust be a valid LinkedIn URL" }
 
   # before_commit :generate_qrcode, on: :create
 
