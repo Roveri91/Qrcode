@@ -31,6 +31,21 @@ RSpec.describe Profile, type: :model do
     profile.valid?
     expect(profile.errors[:linkedln]).to include("can't be blank")
   end
-  it "is invalid with a duplicate linkedln"
+  it "is invalid with a duplicate linkedln" do
+    Profile.create(
+      name: "Bill",
+      surname: "Gates",
+      birthday: "2023-12-28",
+      linkedln: "https://www.linkedin.com/in/williamhgates/",
+    )
+    profile = Profile.new(
+      name: "Justin",
+      surname: "Case",
+      birthday: "1994-07-23",
+      linkedln: "https://www.linkedin.com/in/williamhgates/",
+    )
+    profile.valid?
+    expect(profile.errors[:linkedln]).to include("This URL has already taken.")
+  end
   it "returns a user's full name as a astring "
 end
