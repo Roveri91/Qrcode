@@ -26,7 +26,11 @@ RSpec.describe Profile, type: :model do
     profile.valid?
     expect(profile.errors[:birthday]).to include("can't be blank")
   end
-  it "is invalid without a linkedln"
+  it "is invalid without a linkedln" do
+    profile = Profile.new(linkedln: nil)
+    profile.valid?
+    expect(profile.errors[:linkedln]).to include("can't be blank")
+  end
   it "is invalid with a duplicate linkedln"
   it "returns a user's full name as a astring "
 end
