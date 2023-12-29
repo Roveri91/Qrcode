@@ -11,10 +11,41 @@ RSpec.describe Profile, type: :model do
     )
     expect(profile).to be_valid
   end
-  it "is invalid without a name"
-  it "is invalid without a surname"
-  it "is invalid without a birthday"
-  it "is invalid without a linkedln"
-  it "is invalid with a duplicate linkedln"
+  it "is invalid without a name" do
+    profile = Profile.new(name: nil)
+    profile.valid?
+    expect(profile.errors[:name]).to include("can't be blank")
+  end
+  it "is invalid without a surname" do
+    profile = Profile.new(surname: nil)
+    profile.valid?
+    expect(profile.errors[:surname]).to include("can't be blank")
+  end
+  it "is invalid without a birthday" do
+    profile = Profile.new(birthday: nil)
+    profile.valid?
+    expect(profile.errors[:birthday]).to include("can't be blank")
+  end
+  it "is invalid without a linkedln" do
+    profile = Profile.new(linkedln: nil)
+    profile.valid?
+    expect(profile.errors[:linkedln]).to include("can't be blank")
+  end
+  it "is invalid with a duplicate linkedln" do
+    Profile.create(
+      name: "Bill",
+      surname: "Gates",
+      birthday: "2023-12-28",
+      linkedln: "https://www.linkedin.com/in/williamhgates/",
+    )
+    profile = Profile.new(
+      name: "Justin",
+      surname: "Case",
+      birthday: "1994-07-23",
+      linkedln: "https://www.linkedin.com/in/williamhgates/",
+    )
+    profile.valid?
+    expect(profile.errors[:linkedln]).to include("This URL has already taken.")
+  end
   it "returns a user's full name as a astring "
 end
