@@ -16,7 +16,11 @@ RSpec.describe Profile, type: :model do
     profile.valid?
     expect(profile.errors[:name]).to include("can't be blank")
   end
-  it "is invalid without a surname"
+  it "is invalid without a surname" do
+    profile = Profile.new(surname: nil)
+    profile.valid?
+    expect(profile.errors[:surname]).to include("can't be blank")
+  end
   it "is invalid without a birthday"
   it "is invalid without a linkedln"
   it "is invalid with a duplicate linkedln"
