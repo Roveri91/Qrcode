@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_14_110619) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_31_023012) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -39,6 +39,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_14_110619) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "profile_id", null: false
+    t.index ["profile_id"], name: "index_articles_on_profile_id"
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.string "name"
     t.string "surname"
@@ -50,4 +59,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_14_110619) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "articles", "profiles"
 end

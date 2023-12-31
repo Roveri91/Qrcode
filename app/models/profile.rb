@@ -2,6 +2,7 @@ class Profile < ApplicationRecord
   include Rails.application.routes.url_helpers
 
   has_one_attached :qrcode, dependent: :destroy
+  has_many :articles, dependent: :destroy
 
   validates :name, presence: true
   validates :surname, presence: true
