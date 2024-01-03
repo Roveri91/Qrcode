@@ -17,7 +17,7 @@ class Profile < ApplicationRecord
   # before_commit :generate_qrcode, on: :create
 
   def fullname
-    [name, surname].join("")
+    [name, surname].join(" ")
   end
 
   private

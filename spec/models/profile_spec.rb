@@ -36,16 +36,24 @@ RSpec.describe Profile, type: :model do
       name: "Bill",
       surname: "Gates",
       birthday: "2023-12-28",
-      linkedln: "https://www.linkedin.com/in/williamhgates/",
+      linkedln: "https://www.linkedin.com/in/williamhgates/"
     )
     profile = Profile.new(
       name: "Justin",
       surname: "Case",
       birthday: "1994-07-23",
-      linkedln: "https://www.linkedin.com/in/williamhgates/",
+      linkedln: "https://www.linkedin.com/in/williamhgates/"
     )
     profile.valid?
     expect(profile.errors[:linkedln]).to include("This URL has already taken.")
   end
-  it "returns a user's full name as a astring "
+  it "returns a profile's full name as a string" do
+    profile = Profile.new(
+      name: "Bill",
+      surname: "Gates",
+      birthday: "2023-12-28",
+      linkedln: "https://www.linkedin.com/in/williamhgates/"
+    )
+    expect(profile.fullname).to eq  "Bill Gates"
+  end
 end
