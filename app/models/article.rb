@@ -1,5 +1,7 @@
 class Article < ApplicationRecord
   belongs_to :profile
+  has_many :comment, dependent: :destroy
+
 
   validates :title, presence: true, uniqueness: { scope: :profile_id }
   validates :title, presence: true
