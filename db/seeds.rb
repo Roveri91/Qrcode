@@ -7,10 +7,11 @@
 #   Character.create(name: "Luke", movie: movies.first)
 p "Deleting all previous record"
 
+Comment.delete_all
 Article.delete_all
 Profile.delete_all
 
-p "Delete them"
+p "Deleted them"
 
 p "Creating few profile"
 
@@ -25,7 +26,7 @@ article = Article.create!(
   profile: profile,
   title: "10 Tips for Successful Ruby on Rails Development",
   content: <<-CONTENT.strip_heredoc
-    Ruby on Rails is a powerful web development framework that simplifies the development process
+    Rauby on Rails is a powerful web development framework that simplifies the development process
     and encourages best practices. Here are 10 tips to enhance your Ruby on Rails development:
 
     1. **Follow RESTful conventions:** Design your routes, controllers, and models following RESTful principles.
@@ -44,5 +45,13 @@ article = Article.create!(
 )
 
 p "Create #{article.title} !"
+
+comment = Comment.create!(
+  profile: profile,
+  article: article,
+  content: "Awesome article mate!"
+)
+
+p "Create #{comment.profile.name}'s comment"
 
 p "Done!!"
