@@ -3,7 +3,7 @@ class Profile < ApplicationRecord
 
   has_one_attached :qrcode, dependent: :destroy
   has_many :articles, dependent: :destroy
-  has_many :comment, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :name, presence: true
   validates :surname, presence: true
