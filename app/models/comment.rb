@@ -3,6 +3,6 @@ class Comment < ApplicationRecord
   belongs_to :article
 
   scope :search, ->(term) {
-    where("LOWER(message) LIKE ?", "%#{term.downncase}%")
+    where("LOWER(content) LIKE ?", "%#{term.downcase}%")
   }
 end
