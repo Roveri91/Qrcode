@@ -14,9 +14,9 @@ class ArticleController < ApplicationController
 
     respond_to do |format|
       if @article.save
-        # format.turbo_stream { render :create, locals: { profile: @profile } }
+        format.turbo_stream { render :create, locals: { article: @article } }
       else
-        # format.turbo_stream { render :new, status: :unprocessable_entity, locals: { profile: @profile } }
+        format.turbo_stream { render :new, status: :unprocessable_entity, locals: { article: @article } }
       end
     end
   end
