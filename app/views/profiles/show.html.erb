@@ -25,11 +25,8 @@
     <%#= link_to "+ Article", article_new_path, data: { turbo_frame: "artmodal"} %>
     <%#= turbo_frame_tag "artmodal" %>
     <%= link_to "+ ADD ARTICLE", articles_new_path,data: { turbo_frame: "article_form"} %>
-    <%= turbo_frame_tag "article_form" do%>
-      <div class="card p-2" id="article-form">
-        <%#= render "../articles/articleForm" %>
-      </div>
-    <% end %>
+    <%= turbo_frame_tag "article_form"%>
+
 
   </div>
 
