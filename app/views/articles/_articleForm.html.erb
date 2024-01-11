@@ -1,10 +1,16 @@
-<%= form_with(model: [@profile, article], html: {id: dom_id(article, :form)}) do |form| %>
-  <div class="card">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-    <%= form.label :content %>
-    <%= form.text_field :content %>
-    <%= form.submit %>
-  </div>
+<div id="form" class="container">
+    <%= simple_form_for [@profile, article] do |f| %>
+      <div class="card mt-5">
+        <%= f.input :title %>
+        <%= f.input :content %>
+      </div>
+      <%= f.button :submit %>
+    <% end %>
+    <p><%= link_to "Cancel", "#"%>
+      <%#= link_to "Cancel", "#",data: {
+      controller: "modals",
+      action: "modals#close",
+    }   %>
 
-<% end %>
+    </p>
+</div>
