@@ -9,11 +9,11 @@ class ArticlesController < ApplicationController
     @article = @profile.articles.build(article_params)
     @article.save
 
-    # if @profile.save
-    #   redirect_to profile_path(@profile)
-    # else
-    #   render :new
-    # end
+    if @profile.save
+      redirect_to profile_path(@profile)
+    else
+      render :new
+    end
 
     # respond_to do |format|
     #   if @article.save
