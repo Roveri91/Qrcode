@@ -22,10 +22,11 @@
   </div>
 
   <div>
-    <%#= link_to "+ Article", article_new_path, data: { turbo_frame: "artmodal"} %>
+    <%= link_to "+ Article", new_profile_article_path(@profile)%>
     <%#= turbo_frame_tag "artmodal" %>
-    <%= link_to "+ ADD ARTICLE", articles_new_path,data: { turbo_frame: "article_form"} %>
-    <%= turbo_frame_tag "article_form"%>
+    <div id="form">
+
+    </div>
 
 
   </div>

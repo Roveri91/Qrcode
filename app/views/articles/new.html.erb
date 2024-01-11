@@ -1,14 +1,7 @@
-<%= turbo_frame_tag "article_form" do %>
-
-  <%# <div id="article-form"> %>
-    <%#= render "../articles/articleForm" %>
-    <h1>NEW ARTICLE CREATOR</h1>
-    <%= simple_form_for @article do |f| %>
-
-    <% end %>
-
-    <%#= render partial: "articleForm" %>
-  <%# </div> %>
-
-
+<%= turbo_stream.before "form" do %>
+  <h1>NEW ARTICLE CREATOR</h1>
+  <%#= render "articleForm", article: @article %>
 <% end %>
+
+<h2>Form</h2>
+<%= render "articleForm", article: @article %>
