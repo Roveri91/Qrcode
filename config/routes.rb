@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'comments/new'
   root 'profiles#index'
   resources :profiles do
     resources :articles, only: [:new, :create] do
