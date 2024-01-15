@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
     @article.save
 
     if @article.save
-      redirect_to profile_path(@profile)
+      redirect_to article_path(@article)
     else
       render :new
     end
@@ -26,8 +26,10 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @profile = Profile.find(params[:id])
-    @article = @profile.article.find(params[:id])
+    # @profile = Profile.find(params[:id])
+    # @article = @profile.article.find(params[:id])
+    @article = Article.find(params[:id])
+
   end
 
   private
