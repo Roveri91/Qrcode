@@ -26,8 +26,10 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @profile = Profile.find(params[:id])
-    @article = @profile.article.find(params[:id])
+    # @profile = Profile.find(params[:id])
+    # @article = @profile.article.find(params[:id])
+    @article = Article.find(params[:id])
+
   end
 
   private
