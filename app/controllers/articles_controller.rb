@@ -6,8 +6,6 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    binding.b
-    @article.save!
 
     if @article.save
       redirect_to article_path(@article)
