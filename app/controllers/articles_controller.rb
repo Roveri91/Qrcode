@@ -1,14 +1,11 @@
 class ArticlesController < ApplicationController
 
-
   def new
     @article = Article.new
   end
 
   def create
     @article = Article.new(article_params)
-    @article.save
-    # @article.profile = @profile
 
     if @article.save
       redirect_to article_path(@article)
@@ -34,9 +31,8 @@ class ArticlesController < ApplicationController
 
   private
 
-
-
   def article_params
-    params.require(:article).permit(:title, :content, :profile)
+    params.require(:article).permit(:title, :content, :profile_id)
   end
+
 end
