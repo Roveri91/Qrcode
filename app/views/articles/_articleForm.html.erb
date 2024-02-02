@@ -1,8 +1,10 @@
 <div id="form" class="container">
     <%= simple_form_for @article do |f| %>
       <div class="card mt-5">
+        <%#= f.hidden_field :profile, value: @profile %>
+        <%= f.collection_select :profile_id, Profile.all, :id, :name, prompt: 'Select a User' %>
         <%= f.input :title %>
-        <%#= f.input :content %>
+        <%= f.input :content %>
         <%= f.button :submit %>
       </div>
     <% end %>
