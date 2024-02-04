@@ -26,7 +26,7 @@ article = Article.create!(
   profile: profile,
   title: "10 Tips for Successful Ruby on Rails Development",
   content: <<-CONTENT.strip_heredoc
-    Rauby on Rails is a powerful web development framework that simplifies the development process
+    Ruby on Rails is a powerful web development framework that simplifies the development process
     and encourages best practices. Here are 10 tips to enhance your Ruby on Rails development:
 
     1. **Follow RESTful conventions:** Design your routes, controllers, and models following RESTful principles.
