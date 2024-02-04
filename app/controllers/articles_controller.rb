@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
 
 
     if @article.save
-      redirect_to article_path(@article)
+      redirect_to profile_article_path(@profile, @article)
     else
       render :new
     end
