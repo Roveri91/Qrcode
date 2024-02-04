@@ -13,18 +13,24 @@
 
   <div class="card m-3 p-4">
     <h2><%= @profile.name %>'s Article</h2>
-    <% @profile.articles.each do |article| %>
+    <%# @profile.articles.each do |article|
       <%= link_to article_path(article) do %>
-        <div class="card my-2 p-3">
-         <h3><%= article.title %></h3>
-          <p><%= article.content %></p>
-        </div>
-      <% end %>
-    <% end %>
+        <%# <div class="card my-2 p-3"> %>
+         <%# <h3> %>
+          <%#= article.title %>
+          <%# </h3> %>
+          <%# <p> %>
+            <%#= article.content %>
+            <%# </p> %>
+        <%# </div> %>
+      <%# end %>
+    <%# end %>
 
 
     <div>
-      <%= link_to "+ Article", new_article_path%>
+      <%#= link_to "+ Article", new_article_path%>
+      <%= link_to "+ Article", new_profile_article_path(@profile)%>
+
       <%#= turbo_frame_tag "artmodal" %>
     </div>
   </div>

@@ -1,11 +1,15 @@
 class ArticlesController < ApplicationController
+  before_action :set_profile, only: %i[new create]
 
   def new
+    @profile = Profile.find(params[:profile_id])
     @article = Article.new
   end
 
   def create
     @article = Article.new(article_params)
+    @article.profile = @profile
+
 
     if @article.save
       redirect_to article_path(@article)
@@ -32,7 +36,11 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :content, :profile_id)
+    params.require(:article).permit(:title, :content)
+  end
+
+  def set_profile
+    @profile = Profile.find(params[:profile_id])
   end
 
 end
