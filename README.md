@@ -42,10 +42,10 @@ rails s
 🔨 Built With
 ---
 + [Rails 7](https://guides.rubyonrails.org/) - Backend / Front-end
-+ [Sidekiq](https://sidekiq.org/) - Background Job Processor
-+ [Redis](https://redis.io/) - Database
-+ [PostgreSQL](https://www.postgresql.org/) - Database
-+ [Docker](https://www.docker.com/) — Development Tools
++ [Qrcode](https://github.com/whomwah/rqrcode) - Ruby Gem
++ [Hotwire Turbo Frame](https://turbo.hotwired.dev/handbook/frames) - Framework
++ [RSSPEC](https://www.docker.com/) — Testing Tools
++ [Everyday Rails Testing]([https://www.postgresql.org/](https://leanpub.com/everydayrailsrspec))
 
 
 🗿 Team Members
