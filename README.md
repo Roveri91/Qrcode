@@ -44,8 +44,8 @@ rails s
 + [Rails 7](https://guides.rubyonrails.org/) - Backend / Front-end
 + [Qrcode](https://github.com/whomwah/rqrcode) - Ruby Gem
 + [Hotwire Turbo Frame](https://turbo.hotwired.dev/handbook/frames) - Framework
-+ [RSSPEC](https://www.docker.com/) — Testing Tools
-+ [Everyday Rails Testing]([https://www.postgresql.org/](https://leanpub.com/everydayrailsrspec))
++ [RSSPEC](https://rspec.info/) — Testing Tools
++ [Everyday Rails Testing](https://leanpub.com/everydayrailsrspec)
 
 
 🗿 Team Members
