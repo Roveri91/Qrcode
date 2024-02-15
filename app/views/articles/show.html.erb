@@ -5,7 +5,7 @@
   <%= link_to "Back", :root  %>
 </div>
 
-<% if @article.comments.exists %>
+<% if @article.comments.exists? %>
   <div class="card m-2 p-3">
     <h5>Comments</h5>
     <% @article.comments.each do |comment| %>
