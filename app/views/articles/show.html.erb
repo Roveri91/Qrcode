@@ -9,9 +9,10 @@
   <div class="card m-2 p-3">
     <h4>Comments</h4>
     <% @article.comments.each do |comment| %>
-      <p><strong><%= comment.profile.fullname %>: </strong></p>
-      <span><%= comment.content %></span>
+      <p><strong><%= comment.profile.fullname %>:  </strong><span><%= comment.content %></span></p>
     <% end %>
+
+    <%= link_to "New Comment", new_profile_article_comment_path(@profile,@article) %>
 
   </div>
 

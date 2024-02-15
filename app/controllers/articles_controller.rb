@@ -1,8 +1,8 @@
 class ArticlesController < ApplicationController
-  before_action :set_profile, only: %i[new create]
+  before_action :set_profile, only: %i[new create show]
 
   def new
-    @profile = Profile.find(params[:profile_id])
+    # @profile = Profile.find(params[:profile_id])
     @article = Article.new
   end
 
