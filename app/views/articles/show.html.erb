@@ -7,9 +7,10 @@
 
 <% if @article.comments.exists? %>
   <div class="card m-2 p-3">
-    <h5>Comments</h5>
+    <h4>Comments</h4>
     <% @article.comments.each do |comment| %>
-      <%= comment.content %>
+      <p><strong><%= comment.profile.fullname %>: </strong></p>
+      <span><%= comment.content %></span>
     <% end %>
 
   </div>
