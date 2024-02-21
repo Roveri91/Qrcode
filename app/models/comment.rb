@@ -1,6 +1,6 @@
 class Comment < ApplicationRecord
-  belongs_to :profile, dependent: :destroy
-  belongs_to :article, dependent: :destroy
+  belongs_to :profile
+  belongs_to :article
 
   scope :search, ->(term) {
     where("LOWER(content) LIKE ?", "%#{term.downcase}%")
