@@ -7,7 +7,10 @@
     <h4>Comments:</h4>
     <% if @article.comments.exists? %>
       <% @article.comments.each do |comment| %>
-        <p><strong><%= comment.profile.fullname %>:  </strong><span><%= comment.content %></span></p>
+        <p><strong><%= comment.profile.fullname %>: &nbsp;</strong><span><%= comment.content %></span>&nbsp;
+        <%= link_to "Delete", profile_article_comment_path(@profile, @article, comment.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        </p>
+        <hr>
       <% end %>
     <% end %>
     <%= link_to "Write a new comment", new_profile_article_comment_path(@profile,@article) %>
