@@ -1,7 +1,9 @@
-<h1>Comments#new</h1>
-<p>Find me in app/views/comments/new.html.erb</p>
+<h1>Write a new comment</h1>
+
 <%= simple_form_for [@profile, @article, @comment] do |f| %>
   <%= f.input :content %>
+  <%= f.collection_select :profile_id, Profile.all, :id, :name, prompt: 'Who is writing?' %>
+
   <%#= f.input :profile %>
   <%= f.submit %>
 <% end %>
