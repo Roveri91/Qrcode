@@ -2,15 +2,18 @@
   <h3><%= @article.title %></h3>
   <h5>written by <%= @article.profile.name %> <%= @article.profile.surname %></h5>
   <p><%= @article.content %></p>
-  <%= link_to "Back", :root  %>
-</div>
 
-<div class="card m-2 p-3">
-  <% if @article.comments.exists? %>
-    <h4>Comments</h4>
-    <% @article.comments.each do |comment| %>
-      <p><strong><%= comment.profile.fullname %>:  </strong><span><%= comment.content %></span></p>
+  <div class="card m-2 p-3">
+    <h4>Comments:</h4>
+    <% if @article.comments.exists? %>
+      <% @article.comments.each do |comment| %>
+        <p><strong><%= comment.profile.fullname %>:  </strong><span><%= comment.content %></span></p>
+      <% end %>
     <% end %>
-  <% end %>
-  <%= link_to "New Comment", new_profile_article_comment_path(@profile,@article) %>
+    <%= link_to "Write a new comment", new_profile_article_comment_path(@profile,@article) %>
+  </div>
+
+
+
+  <%= link_to "Back", :root  %>
 </div>
