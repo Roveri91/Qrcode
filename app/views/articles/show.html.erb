@@ -5,15 +5,12 @@
   <%= link_to "Back", :root  %>
 </div>
 
-<% if @article.comments.exists? %>
-  <div class="card m-2 p-3">
+<div class="card m-2 p-3">
+  <% if @article.comments.exists? %>
     <h4>Comments</h4>
     <% @article.comments.each do |comment| %>
       <p><strong><%= comment.profile.fullname %>:  </strong><span><%= comment.content %></span></p>
     <% end %>
-
-    <%= link_to "New Comment", new_profile_article_comment_path(@profile,@article) %>
-
-  </div>
-
-<% end %>
+  <% end %>
+  <%= link_to "New Comment", new_profile_article_comment_path(@profile,@article) %>
+</div>
