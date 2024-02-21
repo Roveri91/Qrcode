@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # get 'comments/new'
   resources :profiles, only: [:index, :show, :new, :create, :destroy] do
-    resources :articles, only: [:new, :create, :show] do
+    resources :articles, only: [:new, :create, :show, :destroy] do
       resources :comments, only: [:new, :create, :destroy]
     end
   end
