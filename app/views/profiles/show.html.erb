@@ -17,6 +17,7 @@
       <%= link_to profile_article_path(@profile, article.id) do %>
         <div class="card my-2 p-3">
          <h3><%= article.title %></h3>
+         <%= link_to "Delete", profile_article_path(@profile, article.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
           <%# <p> %>
             <%#= article.content %>
             <%# </p> %>
