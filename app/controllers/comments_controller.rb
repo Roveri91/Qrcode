@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :set_profile, only: %i[new create]
-  before_action :set_article, only: %i[new create]
+  before_action :set_profile, only: %i[new create destroy]
+  before_action :set_article, only: %i[new create destroy]
 
   def new
     @comment = Comment.new
@@ -15,6 +15,14 @@ class CommentsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+
+    redirect_to profile_article_path(@profile, @article), status: :see_other
+
   end
 
   private
