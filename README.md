@@ -14,6 +14,10 @@ implementing RSPEC following "everyday rails testing with rspec" book.
 
 📱SCREENSHOT
 ---
+![Screenshot 2024-02-23 164239](https://github.com/Roveri91/Qrcode/assets/105217392/62086d4a-0f6c-41aa-ad5a-5b9a50426ac8)
+![Screenshot 2024-02-23 164251](https://github.com/Roveri91/Qrcode/assets/105217392/ff8f41fa-902a-4d7d-a19e-7ac57c1c3c6f)
+![Screenshot 2024-02-23 164326](https://github.com/Roveri91/Qrcode/assets/105217392/f2306066-e1d0-49c3-8f95-bb87314b1c2a)
+![Screenshot 2024-02-23 164340](https://github.com/Roveri91/Qrcode/assets/105217392/45a2fd1b-3c07-4b19-a040-24db315f5cd7)
 
 ---
 
