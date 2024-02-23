@@ -1,5 +1,5 @@
 
-㊗️ QR CODE
+💻 QR CODE
 ---
 
 An app where I am experimenting all the things i learn
