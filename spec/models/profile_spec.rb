@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Profile, type: :model do
-  # pending "add some examples to (or delete) #{__FILE__}"
   it "is valid with a first name, surname, bithday, linkedln" do
     profile = Profile.new(
       name: "Bill",
