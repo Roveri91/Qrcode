@@ -63,10 +63,6 @@ RSpec.describe Comment, type: :model do
   end
 
   describe "search message for a term" do
-    # before do
-
-    # end
-
     context "when a match is found" do
       # matching exaple ...
       it "returns comments that match the search term" do
