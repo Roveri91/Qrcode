@@ -15,17 +15,17 @@ RSpec.describe Comment, type: :model do
     )
 
     @comment1 = @article.comments.create(
-        content: "this is the first comment",
-        profile: @profile
-      )
-      @comment2 = @article.comments.create(
-        content: "this is the second comment",
-        profile: @profile
-      )
-      @comment3 = @article.comments.create(
-        content: "this is not the first comment",
-        profile: @profile
-      )
+      content: "this is the first comment",
+      profile: @profile
+    )
+    @comment2 = @article.comments.create(
+      content: "this is the second comment",
+      profile: @profile
+    )
+    @comment3 = @article.comments.create(
+      content: "this is not the first comment",
+      profile: @profile
+    )
   end
 
   it "is valid with a content of 10 char" do
@@ -64,7 +64,7 @@ RSpec.describe Comment, type: :model do
 
   describe "search message for a term" do
     context "when a match is found" do
-      # matching exaple ...
+      # matching examples ...
       it "returns comments that match the search term" do
         expect(Comment.search("first")).to include(@comment1, @comment3)
         expect(Comment.search("first")).to_not include(@comment2)

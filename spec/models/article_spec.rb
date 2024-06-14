@@ -1,20 +1,29 @@
 require 'rails_helper'
 
 RSpec.describe Article, type: :model do
-  it "does not allow duplicate article names per profile" do
-    profile = Profile.create(
+  before do
+    @profile = Profile.create(
       name: "Bill",
       surname: "Gates",
       birthday: "1955-10-28",
       linkedln: "https://www.linkedin.com/in/williamhgates/"
     )
+  end
 
-    profile.articles.create(
+  # describe "validations" do
+  #   it "is valid with a title" do
+
+  #   end
+  # end
+
+  it "does not allow duplicate article names per profile" do
+
+    @profile.articles.create(
       title: "Testing on rails",
       content: "Just buy Evereday Rails book"
     )
 
-    new_article = profile.articles.build(
+    new_article = @profile.articles.build(
       title: "Testing on rails",
       content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id eu nisl nunc mi ipsum faucibus vitae aliquet. Mauris pharetra et ultrices neque ornare aenean euismod. Arcu bibendum at varius vel pharetra vel turpis nunc. "
     )
@@ -24,14 +33,7 @@ RSpec.describe Article, type: :model do
   end
 
   it "allows two profile to share a article name" do
-    profile = Profile.create(
-      name: "Bill",
-      surname: "Gates",
-      birthday: "1955-10-28",
-      linkedln: "https://www.linkedin.com/in/williamhgates/"
-    )
-
-    profile.articles.create(
+    @profile.articles.create(
       title: "Testing on rails",
       content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id eu nisl nunc mi ipsum faucibus vitae aliquet. Mauris pharetra et ultrices neque ornare aenean euismod. Arcu bibendum at varius vel pharetra vel turpis nunc. "
     )
