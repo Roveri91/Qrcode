@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Profile, type: :model do
+
+  it "has a valid factory" do
+    expect(FactoryBot.build(:profile)).to be_valid
+  end
+
   describe "validations" do
     it "is valid with a first name, surname, bithday, linkedln" do
       profile = Profile.new(
@@ -47,6 +52,7 @@ RSpec.describe Profile, type: :model do
       profile.valid?
       expect(profile.errors[:linkedln]).to include("This URL has already taken.")
     end
+
   end
   describe "full name method" do
     it "returns a profile's full name as a string" do
