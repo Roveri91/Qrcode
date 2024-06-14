@@ -23,7 +23,7 @@ RSpec.describe Article, type: :model do
       test_article.valid?
       expect(test_article.errors[:title]).to include("can't be blank")
     end
-    it "is sinvalid without a cocntent" do
+    it "is invalid without a cocntent" do
       test_article = @profile.articles.create( content: nil )
       test_article.valid?
       expect(test_article.errors[:content]).to include("can't be blank")
