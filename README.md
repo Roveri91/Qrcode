@@ -8,7 +8,7 @@ An app where I am experimenting all the things i learn
 
 This is a simple yet dynamic blog page designed with the only purpose of experimenting new technologies and methodologies that i want to learn.
 
-I use this code top learn new things like: QR Code generatore, hotwire Turbo frame, collection routes.
+I use this code top learn new things like: QR Code generator, hotwire Turbo frame, collection routes.
 implementing RSPEC following "everyday rails testing with rspec" book. 
 
 
