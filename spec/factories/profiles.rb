@@ -3,6 +3,6 @@ FactoryBot.define do
     name "Bill"
     surname "Gates"
     birthday "1955-10-28"
-    linkedln "https://www.linkedin.com/in/williamhgates/"
+    sequence(:linkedln) { |n| "https://www.linkedin.com/in/williamhgates#{n}"}
   end
 end
