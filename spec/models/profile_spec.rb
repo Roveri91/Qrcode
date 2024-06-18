@@ -5,6 +5,10 @@ RSpec.describe Profile, type: :model do
   it "has a valid factory" do
     expect(FactoryBot.build(:profile)).to be_valid
   end
+  it "can have many articles" do
+    profile = FactoryBot.create(:profile, :with_articles)
+    expect(profile.articles.length).to eq 2
+  end
 
   describe "validations" do
     it "is valid with a first name, surname, bithday, linkedln" do

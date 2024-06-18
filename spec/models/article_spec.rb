@@ -10,6 +10,11 @@ RSpec.describe Article, type: :model do
     )
   end
 
+  it "can have many comments" do
+    article = FactoryBot.create(:article, :with_comments)
+  expect(article.comments.length).to eq 5
+  end
+
   describe "validations" do
     it "is valid with a title and content" do
       test_article = @profile.articles.create(
