@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # get 'comments/new'
   resources :profiles, only: [:index, :show, :new, :create, :destroy] do
     resources :articles, only: [:new, :create, :show, :destroy] do
