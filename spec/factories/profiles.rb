@@ -8,6 +8,5 @@ FactoryBot.define do
     trait :with_articles do
       after(:create) { |profile| create_list(:article, 2, profile: profile) }
     end
-
   end
 end
