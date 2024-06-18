@@ -5,7 +5,7 @@
     <% @profiles.reverse_each do |profile| %>
       <%= link_to profile_path(profile) do %>
         <div class="card m-5 p-5">
-          <h1><%= profile.name %> <%= profile.surname %></h1>
+          <h1><%= profile.fullname%></h1>
         </div>
       <% end %>
     <% end %>

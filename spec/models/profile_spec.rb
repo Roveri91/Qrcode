@@ -6,6 +6,11 @@ RSpec.describe Profile, type: :model do
     expect(FactoryBot.build(:profile)).to be_valid
   end
 
+  it "can have many articles" do
+    profile = FactoryBot.create(:profile, :with_articles)
+    expect(profile.articles.length).to eq 2
+  end
+
   describe "validations" do
     it "is valid with a first name, surname, bithday, linkedln" do
       profile = Profile.new(
@@ -37,8 +42,8 @@ RSpec.describe Profile, type: :model do
       expect(profile.errors[:linkedln]).to include("can't be blank")
     end
     it "is invalid with a duplicate linkedln" do
-      FactoryBot.create(:profile)
-      profile = FactoryBot.build(:profile, name: "Elon", surname: "Musck")
+      FactoryBot.create(:profile, linkedln: "https://www.linkedin.com/in/ElonMusck/")
+      profile = FactoryBot.build(:profile, name: "Elon", surname: "Musck", linkedln: "https://www.linkedin.com/in/ElonMusck/")
       profile.valid?
       expect(profile.errors[:linkedln]).to include("This URL has already taken.")
     end
@@ -47,8 +52,8 @@ RSpec.describe Profile, type: :model do
 
   describe "full name method" do
     it "returns a profile's full name as a string" do
-      profile = FactoryBot.build(:profile)
-      expect(profile.fullname).to eq  "Bill Gates"
+      profile = FactoryBot.build(:profile, name: "Elon", surname: "Musk")
+      expect(profile.fullname).to eq  "Elon Musk"
     end
   end
 end

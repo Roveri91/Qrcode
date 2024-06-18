@@ -1,6 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
+
+  it "genterates associated data from a factory" do
+    comment = FactoryBot.create(:comment)
+    puts "This comment's article is #{comment.article.inspect}"
+    puts "This comment's profile is #{comment.profile.inspect}"
+  end
+
+
   before do
     @profile = Profile.create(
       name: "Bill",

@@ -10,6 +10,15 @@ RSpec.describe Article, type: :model do
     )
   end
 
+  it "has valid factory" do
+    expect(FactoryBot.build( :article)).to be_valid
+  end
+
+  it "can have many comments" do
+    article = FactoryBot.create(:article, :with_comments)
+    expect(article.comments.length).to eq 5
+  end
+
   describe "validations" do
     it "is valid with a title and content" do
       test_article = @profile.articles.create(
@@ -19,12 +28,12 @@ RSpec.describe Article, type: :model do
       expect(test_article).to be_valid
     end
     it "is invalid without a title" do
-      test_article = @profile.articles.create( title: nil )
+      test_article = FactoryBot.build(:article, title: nil )
       test_article.valid?
       expect(test_article.errors[:title]).to include("can't be blank")
     end
     it "is invalid without a cocntent" do
-      test_article = @profile.articles.create( content: nil )
+      test_article = FactoryBot.build(:article, content: nil )
       test_article.valid?
       expect(test_article.errors[:content]).to include("can't be blank")
     end
@@ -48,22 +57,9 @@ RSpec.describe Article, type: :model do
     end
 
     it "allows two profile to share a article name" do
-      @profile.articles.create(
-        title: "Testing on rails",
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id eu nisl nunc mi ipsum faucibus vitae aliquet. Mauris pharetra et ultrices neque ornare aenean euismod. Arcu bibendum at varius vel pharetra vel turpis nunc. "
-      )
+      FactoryBot.create(:article, title: "Testing on rails")
 
-      other_profile = Profile.create(
-        name: "Tobias",
-        surname: "Lütke",
-        birthday: "1981-07-16",
-        linkedln: "https://www.linkedin.com/in/tobiaslutke/"
-      )
-
-      other_article = other_profile.articles.build(
-        title: "Testing on rails",
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id eu nisl nunc mi ipsum faucibus vitae aliquet. Mauris pharetra et ultrices neque ornare aenean euismod. Arcu bibendum at varius vel pharetra vel turpis nunc. "
-      )
+      other_article = FactoryBot.build(:article, title: "Testing on rails")
 
       expect(other_article).to be_valid
     end
