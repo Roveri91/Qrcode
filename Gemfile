@@ -51,6 +51,10 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+#Added manually
+gem "rqrcode", "~> 2.2"
+gem "devise"
+
 group :development, :test do
   gem 'rspec-rails', '~> 6.1'
   gem "factory_bot_rails", "~> 4.10.0"
@@ -77,5 +81,3 @@ group :test do
 
 end
 
-gem "rqrcode", "~> 2.2"
-gem "devise"
