@@ -10,6 +10,7 @@ p "Deleting all previous record"
 Comment.delete_all
 Article.delete_all
 Profile.delete_all
+User.delete_all
 
 p "Deleted them"
 
@@ -18,7 +19,7 @@ user = User.create!(email: "user@example.com", password: "password")
 
 p "Creating new profile"
 
-profile = Profile.create!(name: "Simone", surname: "Roveri", linkedln: "https://www.linkedin.com/in/simone-roveri/", birthday: "1991-06-14", user: user)
+profile = Profile.create!(name: "Simone", surname: "Roveri", linkedln: "https://www.linkedin.com/in/simone-roveri/", birthday: "1991-06-14")
 p "Create #{profile.name} profile"
 
 p "Done!!"
