@@ -15,7 +15,7 @@ User.delete_all
 p "Deleted them"
 
 p "Creating new user"
-user = User.create!(email: "user@example.com", password: "password")
+User.create!(email: "user@example.com", password: "password")
 
 p "Creating new profile"
 
