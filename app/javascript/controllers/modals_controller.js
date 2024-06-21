@@ -7,12 +7,14 @@ export default class extends Controller {
 
   close(e){
     e.preventDefault();
-
+    
+    const add_profile_btn = document.getElementById("add_profile");
     const modal = document.getElementById("modal");
     modal.innerHTML = "";
 
     modal.removeAttribute("src");
 
     modal.removeAttribute("complete");
+    add_profile_btn.style.display='block'
   }
 }

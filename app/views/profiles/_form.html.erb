@@ -1,19 +1,21 @@
 <%= turbo_frame_tag "modal" do %>
 
   <div id="form" class="container">
-    <div class="card mt-5">
-      <%#= form_with model: @profile do |f| %>
+    <div class="card p-2">
       <%= simple_form_for @profile do |f| %>
         <%= f.input :name %>
         <%= f.input :surname %>
         <%= f.input :linkedln %>
         <%= f.input :birthday, as: :date, start_year: Date.today.year - 100, end_year: Date.today.year %>
-        <%= f.button :submit %>
+        <div class="d-flex justify-content-evenly pt-3">
+          <%= f.button :submit, "Create", class: "btn btn-primary mb-4" %>
+          <p><%= link_to "Cancel", "#", data: {
+            controller: "modals",
+            action: "modals#close",
+            }, class: "btn btn-danger" %>
+          </p>
+        </div>
       <% end %>
     </div>
-    <p><%= link_to "Cancel", "#", data: {
-      controller: "modals",
-      action: "modals#close",
-    }   %></p>
   </div>
 <% end %>
