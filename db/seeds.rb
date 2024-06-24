@@ -20,6 +20,7 @@ user = User.create!(email: "user@example.com", password: "password")
 p "Creating new profile"
 
 profile = Profile.create!(name: "Simone", surname: "Roveri", linkedln: "https://www.linkedin.com/in/simone-roveri/", birthday: "1991-06-14", user: user)
+
 p "Create #{profile.name} profile"
 
 p "Done!!"
