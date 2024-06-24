@@ -17,11 +17,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
     @profile.save
-    # if @profile.save
-    #   redirect_to profile_path(@profile)
-    # else
-    #   render :new
-    # end
+
 
     respond_to do |format|
       if @profile.save

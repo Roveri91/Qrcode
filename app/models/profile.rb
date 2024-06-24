@@ -4,6 +4,7 @@ class Profile < ApplicationRecord
   has_one_attached :qrcode, dependent: :destroy
   has_many :articles, dependent: :destroy
   has_many :comments, dependent: :destroy
+  belongs_to :user
 
   validates :name, presence: true
   validates :surname, presence: true

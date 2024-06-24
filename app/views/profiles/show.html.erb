@@ -4,7 +4,6 @@
       <h1>Name: <%= @profile.name %></h1>
       <h1>Surname: <%= @profile.surname %></h1>
       <h1>Birthday: <%= @profile.birthday %></h1>
-      <%#= image_tag(url_for(@profile.qrcode)) %>
     </div>
     <div class="card m-5 p-5 qr-container">
       <%= image_tag(@qrcode.to_data_url) %>
@@ -18,9 +17,6 @@
         <div class="card my-2 p-3">
          <h3><%= article.title %></h3>
          <%= link_to "Delete", profile_article_path(@profile, article.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-          <%# <p> %>
-            <%#= article.content %>
-            <%# </p> %>
         </div>
       <% end %>
     <% end %>
@@ -28,8 +24,6 @@
 
     <div>
       <%= link_to "+ Article", new_profile_article_path(@profile)%>
-
-      <%#= turbo_frame_tag "artmodal" %>
     </div>
   </div>
 
