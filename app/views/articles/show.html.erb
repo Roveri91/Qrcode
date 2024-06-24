@@ -8,13 +8,19 @@
     <% if @article.comments.exists? %>
       <% @article.comments.each do |comment| %>
         <p><strong><%= comment.profile.fullname %>: &nbsp;</strong><span><%= comment.content %></span>&nbsp;
-        <%= link_to "Delete", profile_article_comment_path(@profile, @article, comment.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        <% if current_user == comment.profile.user%>
+          <%= link_to "Delete", profile_article_comment_path(@profile, @article, comment.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
+        <% end %>
         </p>
         <hr>
       <% end %>
     <% end %>
-    <%= link_to "Write a new comment", new_profile_article_comment_path(@profile,@article) %>
+    <div>
+      <%= link_to "Write a new comment", new_profile_article_comment_path(@profile,@article), class: "btn btn-primary" %>
+    </div>
   </div>
 
-  <%= link_to "Back", :root  %>
+  <div>
+    <%= link_to "Back", :root, class: "btn btn-secondary"  %>
+  </div>
 </div>

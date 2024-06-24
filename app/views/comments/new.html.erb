@@ -2,8 +2,11 @@
 
 <%= simple_form_for [@profile, @article, @comment] do |f| %>
   <%= f.input :content %>
-  <%= f.collection_select :profile_id, Profile.all, :id, :name, prompt: 'Who is writing?' %>
 
-  <%#= f.input :profile %>
-  <%= f.submit %>
+  <div class="d-flex justify-content-start p-2">
+    <%= f.collection_select :profile_id, current_user.profiles, :id, :name, prompt: 'Who is writing?', class: "m-2" %>
+    <%= f.submit class: "btn btn-primary m-2"%>
+    <%= link_to "back", profile_article_path(@profile, @article.id), class: "btn btn-secondary m-2"%>
+  </div>
 <% end %>
+
