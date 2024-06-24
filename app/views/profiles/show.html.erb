@@ -1,10 +1,8 @@
 <div class="card m-5 p-5">
   <div class="d-flex">
     <div class="card m-5 p-5 qr-container">
-      <h1>Name: <%= @profile.name %></h1>
-      <h1>Surname: <%= @profile.surname %></h1>
+      <h1>Name: <%= @profile.fullname %></h1>
       <h1>Birthday: <%= @profile.birthday %></h1>
-      <%#= image_tag(url_for(@profile.qrcode)) %>
     </div>
     <div class="card m-5 p-5 qr-container">
       <%= image_tag(@qrcode.to_data_url) %>
@@ -17,26 +15,27 @@
       <%= link_to profile_article_path(@profile, article.id) do %>
         <div class="card my-2 p-3">
          <h3><%= article.title %></h3>
-         <%= link_to "Delete", profile_article_path(@profile, article.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-          <%# <p> %>
-            <%#= article.content %>
-            <%# </p> %>
+          <% if current_user == @profile.user %>
+            <%= link_to "Delete", profile_article_path(@profile, article.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          <% end %>
         </div>
       <% end %>
     <% end %>
 
-
-    <div>
-      <%= link_to "+ Article", new_profile_article_path(@profile)%>
-
-      <%#= turbo_frame_tag "artmodal" %>
-    </div>
+    <% if current_user == @profile.user %>
+      <div>
+        <%= link_to "+ Article", new_profile_article_path(@profile), class: "btn btn-primary"%>
+      </div>
+    <% end %>
   </div>
 
+  <% if current_user == @profile.user %>
+    <p class=""><%= link_to "delete this profile",  profile_path(@profile), data: {
+      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    }, class: "btn btn-danger " %></p>
+  <% end %>
 
-  <p><%= link_to "back", profiles_path  %></p>
-  <p class=""><%= link_to "delete this profile",  profile_path(@profile), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %></p>
+  <p><%= link_to "back", profiles_path, class: "btn btn-secondary" %></p>
+
 </div>
