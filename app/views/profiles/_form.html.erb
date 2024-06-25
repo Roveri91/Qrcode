@@ -2,7 +2,7 @@
 
   <div id="form" class="container">
     <div class="p-2">
-      <%= simple_form_for @profile do |f| %>
+      <%= simple_form_for @profile, id: "profile-form"  do |f| %>
         <%= f.input :name %>
         <%= f.input :surname %>
         <%= f.input :linkedln %>
