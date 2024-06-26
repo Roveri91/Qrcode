@@ -3,24 +3,28 @@
   <h5>written by <%= @article.profile.name %> <%= @article.profile.surname %></h5>
   <p><%= @article.content %></p>
 
-  <div class="card m-2 p-3">
-    <h4>Comments:</h4>
-    <% if @article.comments.exists? %>
+  <% if @article.comments.exists? %>
+    <div class="card m-2 p-3">
+      <h4>Comments:</h4>
       <% @article.comments.each do |comment| %>
         <p><strong><%= comment.profile.fullname %>: &nbsp;</strong><span><%= comment.content %></span>&nbsp;
         <% if current_user == comment.profile.user%>
           <%= link_to "Delete", profile_article_comment_path(@profile, @article, comment.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
         <% end %>
-        </p>
-        <hr>
-      <% end %>
+      </p>
+      <hr>
+    </div> 
+  <% end %>
+  
+  <% end %>
+    <% if current_user.profiles.exists?%>
+      <div>
+        <%= link_to "Write a new comment", new_profile_article_comment_path(@profile,@article), class: "btn btn-primary" %>
+      </div>
     <% end %>
-    <div>
-      <%= link_to "Write a new comment", new_profile_article_comment_path(@profile,@article), class: "btn btn-primary" %>
-    </div>
   </div>
 
   <div>
-    <%= link_to "Back", :root, class: "btn btn-secondary"  %>
+    <%= link_to "Back", :root, class: "btn btn-secondary m-4"  %>
   </div>
 </div>

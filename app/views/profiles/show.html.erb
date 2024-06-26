@@ -13,10 +13,10 @@
     <h2><%= @profile.name %>'s Article</h2>
     <% @profile.articles.each do |article| %>
       <%= link_to profile_article_path(@profile, article.id) do %>
-        <div class="card my-2 p-3">
-         <h3><%= article.title %></h3>
+        <div class="border d-flex justify-content-between p-3 m-3">
+          <h3><%= article.title %></h3>
           <% if current_user == @profile.user %>
-            <%= link_to "Delete", profile_article_path(@profile, article.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            <%= link_to "Delete", profile_article_path(@profile, article.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
           <% end %>
         </div>
       <% end %>
