@@ -1,19 +1,13 @@
 <div id="form" class="container">
     <%= simple_form_for [@profile, @article] do |f| %>
-      <div class="card mt-5">
-        <%#= f.hidden_field :profile_id, value: @profile_id %>
-        <%# <%= f.collection_select :profile_id, Profile.all, :id, :name, prompt: 'Select a User' %>
+      <div class="card m-3 p-3">
         <%= f.input :title %>
         <%= f.input :content %>
-        <%= f.button :submit %>
+        <div>
+          <%= f.button :submit, class: "btn btn-primary" %>
+        </div>
       </div>
     <% end %>
-    <p><%= link_to "Cancel", :back %>
-
-      <%#= link_to "Cancel", "#",data: {
-      controller: "modals",
-      action: "modals#close",
-    }   %>
-
+    <p><%= link_to "Cancel", :back, class: "btn btn-secondary" %>
     </p>
 </div>
