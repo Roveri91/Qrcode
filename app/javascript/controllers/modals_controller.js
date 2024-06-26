@@ -17,4 +17,5 @@ export default class extends Controller {
     modal.removeAttribute("complete");
     add_profile_btn.style.display='block'
   }
+
 }
