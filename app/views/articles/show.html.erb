@@ -11,10 +11,10 @@
         <% if current_user == comment.profile.user%>
           <%= link_to "Delete", profile_article_comment_path(@profile, @article, comment.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
         <% end %>
-      </p>
-      <hr>
+        </p>
+        <hr>
+      <% end %>
     </div> 
-  <% end %>
   
   <% end %>
     <% if current_user.profiles.exists?%>
